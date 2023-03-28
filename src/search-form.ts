@@ -1,6 +1,10 @@
 import { renderBlock } from './lib.js'
 
 export function renderSearchFormBlock (dataStart: string, dataEnd: string) {
+  const dateMax = new Date(dataEnd);
+  let dateMaxMonth = dateMax.getMonth() + 1;
+  dateMaxMonth = dateMaxMonth < 10 ? ('0' + dateMaxMonth) : dateMaxMonth;
+  console.log(dateMaxMonth);
   renderBlock(
     'search-form-block',
     `
@@ -20,11 +24,11 @@ export function renderSearchFormBlock (dataStart: string, dataEnd: string) {
         <div class="row">
           <div>
             <label for="check-in-date">Дата заезда</label>
-            <input id="check-in-date" type="date" value="${dataStart}" min="${dataStart}" max="2021-06-30" name="checkin" />
+            <input id="check-in-date" type="date" value="${dataStart}" min="${dataStart}" max="2023-06-30" name="checkin" />
           </div>
           <div>
             <label for="check-out-date">Дата выезда</label>
-            <input id="check-out-date" type="date" value="2021-05-13" min="2021-05-11" max="2021-06-30" name="checkout" />
+            <input id="check-out-date" type="date" value="${dataEnd}" min="2023-05-11" max="2023-06-30" name="checkout" />
           </div>
           <div>
             <label for="max-price">Макс. цена суток</label>
