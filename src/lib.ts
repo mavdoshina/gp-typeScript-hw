@@ -30,3 +30,12 @@ export function renderToast (message, action) {
     }
   }
 }
+
+export function formatDate(date: number) {
+  return date < 10 ? ('0' + date) : date;
+}
+
+export function getLastDayOfMonth(year, month) {
+  const date = new Date(year, month + 1, 0);
+  return date.getDate();
+}
